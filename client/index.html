@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./libs/choices.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./libs/choices.js"></script>
+  <script defer src="./libs/inputmask.min.js"></script>
+  <script defer src="https://unpkg.com/@popperjs/core@2"></script>
+  <script defer src="https://unpkg.com/tippy.js@6"></script>
+  <script type="module" defer src="./js/script.js"></script>
+  <title>Skillbus CRM</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <a href="#" class="header__logo">
+        <picture>
+          <source srcset="./img/logo-mob.svg" media="(max-width:578px)">
+          <img src="./img/logo.svg" alt="Логотип Skillbus">
+        </picture>
+      </a>
+      <div class="header__search" id="search-wrapper"></div>
+    </div>
+  </header>
+  <main>
+    <section class="clients">
+      <div class="container clients__container">
+        <h1 class="clients__header title-reset">Клиенты</h1>
+        <div class="clients__app" id="app"></div>
+        <button class="btn-reset clients__btn" id="clients-btn">
+          <svg width="23" height="16" viewbox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z" fill="#9873FF"/>
+          </svg>
+          Добавить клиента
+        </button>
+      </div>
+    </section>
+  </main>
+  <div class="modal" id="modal">
+    <form class="modal__box" id="modal-box">
+      <div class="modal__top" id="modal-top">
+        <div class="modal__container" id="modal-container">
+          <button class="btn-reset modal__close" id="modal-close">
+            <svg width="17" height="17" viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z" fill="#B0B0B0"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal__bottom" id="modal-bottom">
+        <!-- <div class="modal__contact-wrapp">
+          <select name="select" class="modal__choices">
+            <option value="Телефон">Телефон</option>
+            <option value="Доп. телефон">Доп. телефон</option>
+            <option value="Email">Email</option>
+            <option value="Vk">Vk</option>
+            <option value="Facebook">Facebook</option>
+          </select>
+          <input type="text" placeholder="Введите данные контакта" class="modal__contact-input">
+          <button class="btn-reset modal__contact-del">
+            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 0C2.682 0 0 2.682 0 6C0 9.318 2.682 12 6 12C9.318 12 12 9.318 12 6C12 2.682 9.318 0 6 0ZM6 10.8C3.354 10.8 1.2 8.646 1.2 6C1.2 3.354 3.354 1.2 6 1.2C8.646 1.2 10.8 3.354 10.8 6C10.8 8.646 8.646 10.8 6 10.8ZM8.154 3L6 5.154L3.846 3L3 3.846L5.154 6L3 8.154L3.846 9L6 6.846L8.154 9L9 8.154L6.846 6L9 3.846L8.154 3Z" fill="#F06A4D"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal__contact-wrapp">
+          <select name="select" class="modal__choices">
+            <option value="Телефон">Телефон</option>
+            <option value="Доп. телефон">Доп. телефон</option>
+            <option value="Email">Email</option>
+            <option value="Vk">Vk</option>
+            <option value="Facebook">Facebook</option>
+          </select>
+          <input type="text" placeholder="Введите данные контакта" class="modal__contact-input">
+          <button class="btn-reset modal__contact-del">
+            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 0C2.682 0 0 2.682 0 6C0 9.318 2.682 12 6 12C9.318 12 12 9.318 12 6C12 2.682 9.318 0 6 0ZM6 10.8C3.354 10.8 1.2 8.646 1.2 6C1.2 3.354 3.354 1.2 6 1.2C8.646 1.2 10.8 3.354 10.8 6C10.8 8.646 8.646 10.8 6 10.8ZM8.154 3L6 5.154L3.846 3L3 3.846L5.154 6L3 8.154L3.846 9L6 6.846L8.154 9L9 8.154L6.846 6L9 3.846L8.154 3Z" fill="#F06A4D"/>
+            </svg>
+          </button>
+        </div> -->
+        <!-- <div class="modal__error" id="error-field">
+          <p class="error name-error">Ошибка: поля Имя и Фамилия обязательны для заполнения</p>
+          <p class="error contact-error">Ошибка: Каждый добавленный контакт должен быть полностью заполнен</p>
+        </div> -->
+        <button class="btn-reset modal__add" id="modal-add-contact">
+          <svg width="14" height="14" viewbox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.99998 3.66671C6.63331 3.66671 6.33331 3.96671 6.33331 4.33337V6.33337H4.33331C3.96665 6.33337 3.66665 6.63337 3.66665 7.00004C3.66665 7.36671 3.96665 7.66671 4.33331 7.66671H6.33331V9.66671C6.33331 10.0334 6.63331 10.3334 6.99998 10.3334C7.36665 10.3334 7.66665 10.0334 7.66665 9.66671V7.66671H9.66665C10.0333 7.66671 10.3333 7.36671 10.3333 7.00004C10.3333 6.63337 10.0333 6.33337 9.66665 6.33337H7.66665V4.33337C7.66665 3.96671 7.36665 3.66671 6.99998 3.66671ZM6.99998 0.333374C3.31998 0.333374 0.333313 3.32004 0.333313 7.00004C0.333313 10.68 3.31998 13.6667 6.99998 13.6667C10.68 13.6667 13.6666 10.68 13.6666 7.00004C13.6666 3.32004 10.68 0.333374 6.99998 0.333374ZM6.99998 12.3334C4.05998 12.3334 1.66665 9.94004 1.66665 7.00004C1.66665 4.06004 4.05998 1.66671 6.99998 1.66671C9.93998 1.66671 12.3333 4.06004 12.3333 7.00004C12.3333 9.94004 9.93998 12.3334 6.99998 12.3334Z" fill="#9873FF"/>
+          </svg>
+          Добавить контакт
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
