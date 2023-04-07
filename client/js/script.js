@@ -1,12 +1,14 @@
-// fetch clients
-
-
-// console.log(listClients)
-
 let sortByCol = 'data',
     sortSwap = true
 
 // header search
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  new SimpleBar(document.getElementById('app'), {
+    autoHide: false,
+  })
+});
 
 const $searchWrapp = document.getElementById('search-wrapper'),
     $form = document.createElement('form'),
@@ -856,12 +858,14 @@ async function render() {
 
   })
 
+  console.log(copyListData);
+
   // search
 
   if($searchInput.value.trim() !== '') {
 
     copyListData = copyListData.filter(function(client) {
-      if ((client.fio.toLowerCase().includes($searchInput.value.trim())) || (client.fio.includes($searchInput.value.trim()))) return true
+      if ((client.name.toLowerCase().includes($searchInput.value.trim())) || (client.name.includes($searchInput.value.trim())) || (client.lastName.toLowerCase().includes($searchInput.value.trim())) || (client.lastName.includes($searchInput.value.trim())) || (client.surname.toLowerCase().includes($searchInput.value.trim())) || (client.surname.includes($searchInput.value.trim()))) return true
     })
   }
 
@@ -1009,3 +1013,5 @@ function deleteModal (id) {
     render()
   })
 }
+
+
